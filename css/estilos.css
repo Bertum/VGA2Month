@@ -14,7 +14,7 @@ body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'BlockCartoon'}
 	position: absolute;
 }
 
-#title{
+h1{
 	margin: 0 auto;
 	text-align: center;
 	padding-top: 6%;
@@ -118,14 +118,13 @@ body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'BlockCartoon'}
 	  position: absolute;
   }
 
+#puntuacionGameOver{
+	font-family: 'BlockCartoon';
+	color: white;
+}
+
 #gameOver, #gameOverBackground{
 	height: 100%;
 	 width: 100%; 
 	overflow: hidden ;
-}
-
-#restartGame{
-	position: absolute;
-	top: 50%;
-	left: 45%
 }
