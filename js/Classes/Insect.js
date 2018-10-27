@@ -1,4 +1,4 @@
-Insect.prototype = new MainClass();
+Insect.prototype = Object.create(MainClass.prototype);
 //Declaracion objeto Ship para el jugador y los enemigos
 function Insect(src, posX, posY, vida) {
     MainClass.call(this, src, posX, posY);

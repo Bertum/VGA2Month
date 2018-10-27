@@ -1,4 +1,4 @@
-Fly.prototype = new Insect();
+Fly.prototype = Object.create(Insect.prototype);
 //Declaracion objeto Ship para el jugador y los enemigos
 function Fly(src, posX, posY, vida) {
     Insect.call(this, src, posX, posY);
@@ -15,7 +15,7 @@ function Fly(src, posX, posY, vida) {
 Fly.prototype.movement = function(){
     //Funcion de movimiento de la mosca
     //dir 0 top; 1 right; 2 down; 3 left
-    var dir = Math.random*7 % 4;
+    var dir = Math.random()*7 % 4;
     switch(dir){
         case 0:
             this.posY--;

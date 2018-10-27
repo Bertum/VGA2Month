@@ -27,8 +27,9 @@ function displayHelpText(){
  * Funcion para gestionar el display de los mosquitos
  */
 function gestionMoscas(){
+    $('#gameCanvas').html("");
     for(var f in arrFly){
-        $('#gameCanvas').append("<img src='"+arrFly[f].src+"' class='mosca' id='"+f+"' style='left:"+arrFly[f].posX+"px;top:"+arrFly[f].posY+"px'>");
+        $('#gameCanvas').append("<img src='"+arrFly[f].sprite.src+"' class='mosca' id='"+f+"' style='left:"+arrFly[f].posX+"px;top:"+arrFly[f].posY+"px'>");
         arrFly[f].movement();
         
     }
@@ -38,8 +39,9 @@ function gestionMoscas(){
  * Funcion para gestionar el display de los mosquitos
  */
 function gestionMariposas(){
+    $('#gameCanvas').html("");
     for(var b in arrButterfly){
         arrButterfly[b].movement();
-        $('#gameCanvas').append("<img src='"+arrButterfly[b].src+"' class='mosca' id='"+f+"' style='left:"+arrButterfly[b].posX+"px;top:"+arrButterfly[b].posY+"px'>");
+        $('#gameCanvas').append("<img src='"+arrButterfly[b].sprite.src+"' class='mosca' id='"+f+"' style='left:"+arrButterfly[b].posX+"px;top:"+arrButterfly[b].posY+"px'>");
     }
 }
