@@ -43,6 +43,27 @@ body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'BlockCartoon'}
 	color: white;
 }
 
+#helpText{
+	font-family: 'BlockCartoon';
+	background: url("../img/help_text.png");
+	background-size: cover;
+	width: 525px;
+	height: 130px;
+	color: white;
+}
+
+#helpHead{
+	display: table;
+	margin: 0 auto;
+	margin-top: 5%;
+}
+
+#helpBody{
+	display: table;
+	margin: 0 auto;
+	margin-top: 5%;
+}
+
 #creditsContainer{
 	display: table;
 	margin: 0 auto;
@@ -62,13 +83,11 @@ body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'BlockCartoon'}
 	padding-left: 10px;
 }
 
-#backgroundCanvas{background: black;}
-#izquierda{left:0%;top:30%;width:25%;height:50%}
-#derecha{right:0%;top:30%;width:25%;height:50%}
-#arriba{top:0%;left:25%;width:50%;height:25%}
-#abajo{bottom:0%;left:25%;width:50%;height:25%}
-#disparo{top:25%;left:25%;width:50%;height:50%}
-#asteroid{position: absolute;height: 100%;}
+#backgroundCanvas{
+	background-image: url("../img/background.png");
+	background-size:cover;
+}
+
 #puntuacion{
 	position:absolute;
 	top:0px;
@@ -99,16 +118,6 @@ body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'BlockCartoon'}
 	  position: absolute;
   }
 
-  #asteroidLeela{
-	  position: absolute;
-	  bottom: 0;
-  }
-
-  #asteroidMessage{
-	  position: absolute;
-	  bottom: 300px;
-	  left:200px;
-  }
 #gameOver, #gameOverBackground{
 	height: 100%;
 	 width: 100%; 

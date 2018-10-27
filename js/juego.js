@@ -5,18 +5,14 @@ function inicio() {
 	level = localStorage.getItem("level");
 	gamePaused = true;
 	if (level == 2) {
-		$("#tiempo").apped(tiempoContrareloj/1000);
-		//Desplegamos texto de ayuda de nivel 2
-	}
-	else{
-		//Desplegamos texto de ayuda de nivel 1
-
+		$("#tiempo").html(tiempoContrareloj/1000);
 	}
 	$("canvas").attr("width", widthVentana);
 	$("canvas").attr("height", heightVentana);
 	temporizador = setTimeout("bucle()", 1000);
 	var musica = document.getElementById("musica");
 	musica.volume = 0.05;
+	displayHelpText();
 }
 function bucle() {
 	if (!gamePaused) {
@@ -43,7 +39,7 @@ function bucle() {
 }
 
 function finDelJuego() {
-	/*if () {
+	if (cuentaMariposas >= limiteMariposas) {
 		window.location.href = "gameOver.html";
-	}*/
+	}
 }
