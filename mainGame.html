@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="Stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+	<canvas id="backgroundCanvas" width=500px height=500px></canvas>
+	<canvas id="gameCanvas" width=500px height=500px></canvas>
+	<canvas id="ammoCanvas" width=500px height=500px></canvas>
+	<div id="arriba" class="control"></div>
+	<div id="abajo" class="control"></div>
+	<div id="izquierda" class="control"></div>
+	<div id="derecha" class="control"></div>
+	<div id="disparo" class="control"></div>
+	<audio id="musica" src="audio/MainTheme.mp3" autoplay></audio>
+	<div id="contieneAudio"></div>
+	<div id="puntuacion"></div>
+	<div id="asteroid">
+		<img id="asteroidLeela" src="img/pop_ups/Leela_message.png" />
+		<img id="asteroidMessage" src="img/pop_ups/start_message.png" />
+	</div>
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="js/Classes/MainClass.js"></script>
+<script src="js/Classes/Ship.js"></script>
+<script src="js/Classes/Trophy.js"></script>
+<script src="js/Classes/Municion.js"></script>
+<script src="js/Classes/Powerup.js"></script>
+<script src="js/condicionesIniciales.js"></script>
+<script src="js/funciones.js"></script>
+<script src="js/juego.js"></script>
+<html>

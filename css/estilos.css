@@ -1,0 +1,64 @@
+body,html{margin:0px;padding:0px;overflow:hidden}
+#backgroundMainMenu{
+	background-image: url("../img/index/indexImage.png");
+	background-size:cover;
+}
+#tutorial{
+	padding: 28px 120px;
+	background: url("../img/index/tutorial_box.png") no-repeat;	
+}
+#level2{
+	padding: 28px 120px;
+	background: url("../img/index/Level_2.png") no-repeat;
+}
+#backgroundCanvas{background: black;}
+#izquierda{left:0%;top:30%;width:25%;height:50%}
+#derecha{right:0%;top:30%;width:25%;height:50%}
+#arriba{top:0%;left:25%;width:50%;height:25%}
+#abajo{bottom:0%;left:25%;width:50%;height:25%}
+#disparo{top:25%;left:25%;width:50%;height:50%}
+#asteroid{position: absolute;height: 100%;}
+#puntuacion{
+	position:absolute;
+	top:0px;
+	right:0px;
+	background:black;
+	color:white;
+	font-family:sans-serif;
+	font-size:72px
+}
+.control{width:300px;height:300px;opacity:0.5;position:absolute;}
+.canvas-container{
+	width: 500px;
+	height: 500px;
+  }
+  button {
+	position:absolute;
+  }
+  canvas{
+	  border:1px solid black;
+	  background:transparent;
+	  position: absolute;
+  }
+
+  #asteroidLeela{
+	  position: absolute;
+	  bottom: 0;
+  }
+
+  #asteroidMessage{
+	  position: absolute;
+	  bottom: 300px;
+	  left:200px;
+  }
+#gameOver, #gameOverBackground{
+	height: 100%;
+	 width: 100%; 
+	overflow: hidden ;
+}
+
+#restartGame{
+	position: absolute;
+	top: 50%;
+	left: 45%
+}
