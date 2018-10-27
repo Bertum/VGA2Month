@@ -31,5 +31,3 @@ A nivel de código:
 * 1 clase mariposa
 * ¿1 clase para el mega mosquito?
 * N clases para gestionar las mecánicas
-------
-Para ejecutar el juego abrir mainMenu.html y seguir las instrucciones.
