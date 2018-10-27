@@ -1,8 +1,7 @@
 Butterfly.prototype = Object.create(Insect.prototype);
 //Declaracion objeto Ship para el jugador y los enemigos
 function Butterfly(src, posX, posY, vida) {
-    Insect.call(this, src, posX, posY);
-    this.vida = vida;
+    Insect.call(this, src, posX, posY, vida);
     this.altura = this.sprite.height;
     this.anchura = this.sprite.width;
     this.damageTaken = 0;
@@ -10,8 +9,4 @@ function Butterfly(src, posX, posY, vida) {
     this.movY = 0;
     this.velocX = 0;
     this.velocY = 0;
-}
-
-Butterfly.prototype.movement = function(){
-    //Funcion de movimiento de la mariposa
 }

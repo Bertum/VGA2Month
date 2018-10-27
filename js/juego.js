@@ -16,17 +16,18 @@ function inicio() {
 }
 function bucle() {
 	if (!gamePaused) {
+		clearCanvas();
 		//Si no estamos parados
 		//Generamos moscas cada X
-		if(controlTiempo*Math.random()%3){
-			arrFly.push(new Fly (flyImg, Math.random()*widthVentana, Math.random()*heightVentana, 1));
+		if (controlTiempo * Math.random() % 3) {
+			arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos mariposas cada Y
-		if(controlTiempo%100){
-
+		if (controlTiempo % 100) {
+			arrButterfly.push(new Butterfly(butterflyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos megaMoscas cada Z
-		if(controlTiempo%500){
+		if (controlTiempo % 500) {
 
 		}
 		gestionMoscas();
