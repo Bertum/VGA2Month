@@ -9,28 +9,55 @@
 <body>
 	<div class="canvas-container">
 		<canvas id="backgroundMainMenu"></canvas>
-		<button id="tutorial" onclick="launchLevel(1)"></button>
-		<button id="level2" onclick="launchLevel(2)"></button>
+		<div class="container">
+			<h1 id="title">El juego del mosquito</h1>
+			<div id="buttonsContainer">
+				<div id="mainMenuButtons">
+					<button id="tutorial" onclick="launchLevel(1)">Arcade</button>
+					<button id="level2" onclick="launchLevel(2)">Contrareloj</button>
+					<button id="level2" onclick="openCredits()">Créditos</button>
+				</div>
+			</div>
+			<div id="creditsContainer">
+				<div id="creditsPanel">
+					<p id="programmers">Programación</p>
+					<ul class="customList">
+						<li class="marginTop5">Miguel Agudo Ballesteros</li>
+						<li class="marginTop5">Alberto Delgado Cruzado</li>
+						<li class="marginTop5">Carlos Megía Tarín</li>
+					</ul>
+				</div>
+				<div style="width:225px; margin:0 auto;">
+					<button onclick="backToMain()">Volver al menú</button>
+				</div>
+			</div>
+		</div>
 		<audio id="musica" src="audio/Theme_Song.mp3" autoplay></audio>
 	</div>
 </body>
 <script src="jquery-3.3.1.min.js"></script>
 <script>
+	$("#creditsContainer").hide();
 	var widthVentana = window.innerWidth;
 	var heightVentana = window.innerHeight;
 	var canvas = document.getElementById("backgroundMainMenu");
 	canvas.width = widthVentana;
 	canvas.height = heightVentana;
-	var tutorial = document.getElementById("tutorial");
-	tutorial.style.left = (widthVentana/2 - 122)+"px";
-	tutorial.style.top = (heightVentana/2)+"px";
-	var levelTwo = document.getElementById("level2");
-	levelTwo.style.left = (widthVentana/2 - 122)+"px";
-	levelTwo.style.top = (heightVentana/2 + 100)+"px";
-	
+
 	function launchLevel(level) {
 		localStorage.setItem("level", level);
 		window.location.href = "mainGame.html"
 	}
+
+	function openCredits() {
+		$("#buttonsContainer").hide();
+		$("#creditsContainer").show();
+	}
+
+	function backToMain() {
+		$("#creditsContainer").hide();
+		$("#buttonsContainer").show();
+	}
+
 </script>
 <html>

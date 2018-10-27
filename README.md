@@ -23,13 +23,13 @@ Pantalla de Final del juego - Muestra la puntuación
                                 Boton de creditos
 
 A nivel de código:
-3 html
-1 game
+* 3 html
+* 1 game
 ------
-1 clase de Insecto (O algo asi)
-1 clase mosquito
-1 clase mariposa
-¿1 clase para el mega mosquito?
-N clases para gestionar las mecánicas
+* 1 clase de Insecto (O algo asi)
+* 1 clase mosquito
+* 1 clase mariposa
+* ¿1 clase para el mega mosquito?
+* N clases para gestionar las mecánicas
 ------
 Para ejecutar el juego abrir mainMenu.html y seguir las instrucciones.
