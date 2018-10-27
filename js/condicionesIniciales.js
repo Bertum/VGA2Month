@@ -17,3 +17,15 @@ var gameContext = gameCanvas.getContext("2d"); //indico que el juego será 2D
 //Anchura y altura de ventana
 var widthVentana = window.innerWidth;
 var heightVentana = window.innerHeight;
+//Array de mosquitos
+var arrFly = new Array();
+//Imagen mosquito
+var flyImg = new Image();
+flyImg.addEventListener('load', function () {},{once: true});
+flyImg.src = "img/fly.png";
+//Array de mariposas
+var arrButterfly = new Array();
+//Imagen mariposa
+var butterflyImg = new Image();
+butterflyImg.addEventListener('load', function () {},{once: true});
+butterflyImg.src = "img/butterfly.png";

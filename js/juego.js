@@ -3,10 +3,10 @@ $(document).ready(function () {
 });
 function inicio() {
 	level = localStorage.getItem("level");
-	gamePaused = true;
+	/*gamePaused = true;
 	if (level == 2) {
 		$("#tiempo").html(tiempoContrareloj/1000);
-	}
+	}*/
 	$("canvas").attr("width", widthVentana);
 	$("canvas").attr("height", heightVentana);
 	temporizador = setTimeout("bucle()", 1000);
@@ -19,7 +19,7 @@ function bucle() {
 		//Si no estamos parados
 		//Generamos moscas cada X
 		if(controlTiempo*Math.random()%3){
-
+			arrFly.push(new Fly (flyImg, Math.random()*widthVentana, Math.random()*heightVentana, 1));
 		}
 		//Generamos mariposas cada Y
 		if(controlTiempo%100){
@@ -29,6 +29,8 @@ function bucle() {
 		if(controlTiempo%500){
 
 		}
+		gestionMoscas();
+		gestionMariposas();
 		//Gestionar el control del tiempo en una funcion
 		controlTiempo++;
 		gestionCronometro();

@@ -8,7 +8,7 @@ function gestionCronometro(){
     if(level == 2){
         tiempoDeJuego = tiempoContrareloj-controlTiempo; 
     }
-    $("#tiempo").append(tiempoDeJuego);
+    $("#tiempo").html(tiempoDeJuego);
 }
 
 /**
@@ -20,5 +20,26 @@ function displayHelpText(){
     }
     else{
         $("#helpCanvas").append("<div id='helpText'><div id='helpHead'>Contrareloj</div><div id='helpBody'>En este modo, tu objetivo es aplastar tantos mosquitos como sea posible dentro del limite de tiempo, Cuidado! Mata "+limiteMariposas+" mariposas y perderas!</div></div>");
+    }
+}
+
+/**
+ * Funcion para gestionar el display de los mosquitos
+ */
+function gestionMoscas(){
+    for(var f in arrFly){
+        $('#gameCanvas').append("<img src='"+arrFly[f].src+"' class='mosca' id='"+f+"' style='left:"+arrFly[f].posX+"px;top:"+arrFly[f].posY+"px'>");
+        arrFly[f].movement();
+        
+    }
+}
+
+/**
+ * Funcion para gestionar el display de los mosquitos
+ */
+function gestionMariposas(){
+    for(var b in arrButterfly){
+        arrButterfly[b].movement();
+        $('#gameCanvas').append("<img src='"+arrButterfly[b].src+"' class='mosca' id='"+f+"' style='left:"+arrButterfly[b].posX+"px;top:"+arrButterfly[b].posY+"px'>");
     }
 }

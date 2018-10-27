@@ -14,4 +14,20 @@ function Fly(src, posX, posY, vida) {
 
 Fly.prototype.movement = function(){
     //Funcion de movimiento de la mosca
+    //dir 0 top; 1 right; 2 down; 3 left
+    var dir = Math.random*7 % 4;
+    switch(dir){
+        case 0:
+            this.posY--;
+            break;
+        case 1:
+            this.posX++;
+            break;
+        case 2:
+            this.posY++;
+            break;
+        case 3:
+            this.posX--;
+            break;
+    }
 }
