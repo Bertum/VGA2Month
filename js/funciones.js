@@ -8,7 +8,8 @@ function gestionCronometro() {
     if (level == 2) {
         tiempoDeJuego = tiempoContrareloj - controlTiempo;
     }
-    $("#tiempo").html(tiempoDeJuego);
+    var tiempoSegundos = tiempoDeJuego / 60;
+    $("#tiempo").html(Math.round(tiempoSegundos * 100) / 100);
 }
 
 /**

@@ -20,11 +20,11 @@ function bucle() {
 		clearCanvas();
 		//Si no estamos parados
 		//Generamos moscas cada X
-		if (controlTiempo /** Math.random()*/ % 100 == 0) {
+		if (controlTiempo * Math.random() % 1000) {
 			arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos mariposas cada Y
-		if (controlTiempo % 1000 == 0) {
+		if (controlTiempo % 1000) {
 			arrButterfly.push(new Butterfly(butterflyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos megaMoscas cada Z
@@ -46,4 +46,9 @@ function finDelJuego() {
 	if (cuentaMariposas >= limiteMariposas) {
 		window.location.href = "gameOver.html";
 	}
+}
+
+function showHelpText() {
+	gamePaused = true;
+	displayHelpText();
 }
