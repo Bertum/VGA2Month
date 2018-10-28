@@ -78,14 +78,39 @@ function accelerate() {
  * Funciones para gestionar el toque en la pantalla
  */
 function gestionarToque() {
-    $("#gameCanvas").click(function () {
-        console.log("Has hecho cick");
-        console.log("Has hecho click en: " + event.clientX + ", " + event.clientY);
+    $(document).click(function (event) {
+        if (!$(event.target).is("#gameCanvas")) {
+            toque(event.clientX, event.clientY);
+        }
     });
 }
 
-function toque() {
-    console.log("Has hecho click en: " + event.clientX + ", " + event.clientY);
+function toque(posx, posy) {
+    //console.log("Has hecho click en: " + posx + ", " + posy);
+    for (var i = 0; i < numFly; i++) {
+        if (posx > arrFly[i].posX && posx < arrFly[i].posX + arrFly[i].anchura && posy > arrFly[i].posY && posy < arrFly[i].posY + arrFly[i].altura) {
+            console.log("le has dado a una mosca");
+            /*enemigox.splice(j, 1);
+            enemigoy.splice(j, 1);
+            numenemigos--;
+            $("#contieneaudio").append('<audio id="musica" src="audio/8bit_bomb_explosion.wav" autoplay controls="true"></audio>');
+            puntuacion++;
+            $("#puntuacion").html(puntuacion);*/
+        }
+        else arrayManos.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
+    }
+    for (var i = 0; i < numButterfly; i++) {
+        if (posx > arrButterfly[i].posX && posx < arrButterfly[i].posX + arrButterfly[i].anchura && posy > arrButterfly[i].posY && posy < arrButterfly[i].posY + arrButterfly[i].altura) {
+            console.log("le has dado a una mariposa");
+            /*enemigox.splice(j, 1);
+            enemigoy.splice(j, 1);
+            numenemigos--;
+            $("#contieneaudio").append('<audio id="musica" src="audio/8bit_bomb_explosion.wav" autoplay controls="true"></audio>');
+            puntuacion++;
+            $("#puntuacion").html(puntuacion);*/
+        }
+    }
+
 }
 
 function clearCanvas() {

@@ -13,6 +13,7 @@ function inicio() {
 	temporizador = setTimeout("bucle()", 1000);
 	var musica = document.getElementById("musica");
 	musica.volume = 0.05;
+	gestionarToque();
 	displayHelpText();
 }
 function bucle() {
@@ -20,15 +21,19 @@ function bucle() {
 		clearCanvas();
 		//Si no estamos parados
 		//Generamos moscas cada X
-		if (controlTiempo % 50 == 0) {
+		//if (controlTiempo * Math.random() % 1000) {
+		if (controlTiempo % 250 == 0) {
 			arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
+			numFly++;
 		}
 		//Generamos mariposas cada Y
-		if (controlTiempo % 100 == 0) {
+		//if (controlTiempo % 1000) {
+		if (controlTiempo % 500 == 0) {
 			arrButterfly.push(new Butterfly(butterflyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
+			numButterfly++;
 		}
 		//Generamos megaMoscas cada Z
-		if (controlTiempo % 500) {
+		if (controlTiempo % 1000 == 0) {
 			//arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 5));
 		}
 		if(controlTiempo % 700 == 0){
