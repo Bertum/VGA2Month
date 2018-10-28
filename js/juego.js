@@ -3,12 +3,11 @@ $(document).ready(function () {
 });
 function inicio() {
 	level = localStorage.getItem("level");
-	/*gamePaused = true;
+	gamePaused = true;
 	if (level == 2) {
-		$("#tiempo").html(tiempoContrareloj/1000);
-	}*/
-	$("#helpTextLevel1").hide();
-	$("#helpTextLevel1").hide();
+		$("#tiempo").html(tiempoContrareloj / 1000);
+	}
+	hideHelptText();
 	$("canvas").attr("width", widthVentana);
 	$("canvas").attr("height", heightVentana);
 	temporizador = setTimeout("bucle()", 1000);

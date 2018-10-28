@@ -52,13 +52,13 @@ h1{
 	color: white;
 }
 
-#helpHead{
+.helpHead{
 	display: table;
 	margin: 0 auto;
 	margin-top: 5%;
 }
 
-#helpBody{
+.helpBody{
 	display: table;
 	margin: 0 auto;
 	margin-top: 5%;
@@ -127,4 +127,29 @@ h1{
 	height: 100%;
 	 width: 100%; 
 	overflow: hidden ;
+}
+
+.helpText{
+	display: table;
+    margin: 0 auto;
+	margin-top: 5%;
+	background: url("../img/help_text.png");
+	background-size: cover;
+	color: white;
+	height: 147px;
+}
+
+#tiempo{
+	position: absolute;
+	color:white;
+	width: 100px;
+	height: 50px;
+}
+
+.alignCenter{
+	text-align: center;
+}
+
+.marginHelp{
+	margin: 13px;
 }

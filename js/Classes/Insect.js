@@ -16,6 +16,7 @@ Insect.prototype.movement = function () {
     //Funcion de movimiento de la mosca
     //dir 0 top; 1 right; 2 down; 3 left
     var dir = Math.floor(Math.random() * 7 % 4);
+    //this.accelerate();
     switch (dir) {
         case 0:
             this.posY -= this.velocY;
@@ -34,6 +35,6 @@ Insect.prototype.movement = function () {
 }
 
 Insect.prototype.accelerate = function () {
-    this.velocX *= 5;
-    this.velocY *= 5;
+    this.velocX += 0.01;
+    this.velocY += 0.01;
 }
