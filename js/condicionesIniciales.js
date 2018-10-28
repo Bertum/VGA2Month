@@ -1,7 +1,7 @@
 //Variables entorno
 var temporizador = "";
 var controlTiempo = 0;
-var tiempoContrareloj = 90000;
+var tiempoContrareloj = 9000;
 var cuentaMariposas = 0;
 var limiteMariposas = 3;
 var puntuacion = 0;
