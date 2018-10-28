@@ -24,11 +24,9 @@ function gestionPuntuacion() {
  * Funcion para gestionar el numero de mariposas eliminadas
  */
 function gestionPuntuacionMariposas() {
-
-}
-
-function drawInTopBar(aux) {
-
+    for(var i = 0; i<cuentaMariposas;i++){
+        //topBarContext.drawImage(butterflyImg,)
+    }
 }
 
 /**
@@ -92,16 +90,12 @@ function toque(posx, posy) {
             console.log("le has dado a una mosca");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-            //hitDone = 1;
-            /*flyImg.src = "img/fly_small.png"
-            gameContext.drawImage(arrFly[i].sprite, arrFly[i].posX, arrFly[i].posY);
-            flyImg.src = "img/bloodsplat2.png"*/
+            puntuacion += 10;
             arrFly.splice(f, 1);
         }
         else {
             arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-            //hitDone = 1;
         }
     }
     for (b in arrButterfly) {
@@ -109,17 +103,12 @@ function toque(posx, posy) {
             console.log("le has dado a una mariposa");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-            //hitDone = 1;
             cuentaMariposas++;
-            /*butterflyImg.src = "img/bloodsplat2.png"
-            gameContext.drawImage(arrButterfly[i].sprite, arrButterfly[i].posX, arrButterfly[i].posY);
-            butterflyImg.src = "img/butterfly.png"*/
             arrButterfly.splice(b, 1);
         }
         else {
             arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-            //hitDone = 1;
         }
     }
 }
