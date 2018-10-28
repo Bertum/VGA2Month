@@ -35,6 +35,12 @@ butterflyImg.src = "img/butterfly.png";
 var arrayManos = new Array();
 var numManos = 0;
 //Imagen mano
+var handImg = new Image();
+handImg.addEventListener('load', function () { }, { once: true });
+handImg.src = "img/hand_small.png";
+//Imagen golpe
 var hitImg = new Image();
 hitImg.addEventListener('load', function () { }, { once: true });
 hitImg.src = "img/hit.png";
+hitDone = 0;
+hitCount = 0;

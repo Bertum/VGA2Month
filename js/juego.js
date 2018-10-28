@@ -38,6 +38,17 @@ function bucle() {
 		}
 		gestionMoscas();
 		gestionMariposas();
+		//Gestionar la duración de la imagen del golpe
+		//duracionMano();
+		/*if (hitDone == 1) {
+			console.log("entro aqui");
+			gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+			/*if (hitCounter == 5) {
+				arrayManos.splice(arrayManos.length - 1, 1);
+				hitDone = 0;
+			}
+			else { hitCounter++; }
+	}*/
 		//Gestionar el control del tiempo en una funcion
 		controlTiempo++;
 		gestionCronometro();
