@@ -24,7 +24,7 @@ function gestionPuntuacion() {
  * Funcion para gestionar el numero de mariposas eliminadas
  */
 function gestionPuntuacionMariposas() {
-    for(var i = 0; i<cuentaMariposas;i++){
+    for (var i = 0; i < cuentaMariposas; i++) {
         //topBarContext.drawImage(butterflyImg,)
     }
 }
