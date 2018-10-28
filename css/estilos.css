@@ -8,6 +8,16 @@ body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'BlockCartoon'}
 	background-size:cover;
 }
 
+#topCanvas{
+	font-family: 'BlockCartoon';
+	background: url("../img/button_bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 50px;
+	width: 100%;
+	color: white;	
+}
+
 .container{
 	width: 100%;
 	height: 100%;

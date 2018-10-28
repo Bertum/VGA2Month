@@ -12,8 +12,12 @@ var gamePaused = false;
 var backgroundCanvas = document.getElementById("backgroundCanvas");
 var gameCanvas = document.getElementById("gameCanvas");
 var helpCanvas = document.getElementById("helpCanvas");
+var topCanvas = document.getElementById("topCanvas");
 var backgroundContext = backgroundCanvas.getContext("2d"); //indico que el juego será 2D
 var gameContext = gameCanvas.getContext("2d"); //indico que el juego será 2D
+var topBarContext = topCanvas.getContext("2d");
+topBarContext.fillStyle = "white";
+topBarContext.font = "30px BlockCartoon";
 //Anchura y altura de ventana
 var widthVentana = window.innerWidth;
 var heightVentana = window.innerHeight;
