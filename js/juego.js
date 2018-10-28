@@ -56,6 +56,7 @@ function bucle() {
 
 function finDelJuego() {
 	if (cuentaMariposas >= limiteMariposas || tiempoContrareloj - controlTiempo <= 0) {
+		localStorage.setItem("puntuacion",puntuacion);
 		window.location.href = "gameOver.html";
 	}
 }
