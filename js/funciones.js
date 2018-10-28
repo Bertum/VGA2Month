@@ -30,10 +30,6 @@ function gestionPuntuacionMariposas() {
     }
 }
 
-function drawInTopBar(aux) {
-
-}
-
 /**
  * Funcion para desplegar el texto de ayuda
  */

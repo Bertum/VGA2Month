@@ -22,15 +22,15 @@ function bucle() {
 		//Si no estamos parados
 		//Generamos moscas cada X
 		//if (controlTiempo * Math.random() % 1000) {
-		if (controlTiempo % 250 == 0) {
+		if (controlTiempo % 9 == 0) {
 			arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
-			numFly++;
+
 		}
 		//Generamos mariposas cada Y
 		//if (controlTiempo % 1000) {
-		if (controlTiempo % 500 == 0) {
+		if (controlTiempo % 15 == 0) {
 			arrButterfly.push(new Butterfly(butterflyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
-			numButterfly++;
+
 		}
 		//Generamos megaMoscas cada Z
 		if (controlTiempo % 1000 == 0) {
