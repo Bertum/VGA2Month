@@ -163,9 +163,10 @@ h1{
 	color:white;
 	display: inline-flex;
 	width: 100%;	
-	height: 25px;
+	height: 40px;
 	background: url("../img/help_text.png");
 	background-size: cover;
+	padding-top: 10px;
 }
 
 .separador{
