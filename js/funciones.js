@@ -10,21 +10,21 @@ function gestionCronometro() {
     }
     var tiempoSegundos = tiempoDeJuego / 60;
     var aux = Math.round(tiempoSegundos * 100) / 100;
-    topBarContext.strokeText(aux.toString(), 10, 0, widthVentana / 3);
+    $("#tiempo").html(aux);
 }
 
 /**
  * Funcion para gestionar la puntuacion
  */
 function gestionPuntuacion() {
-    topBarContext.strokeText(puntuacion.toString(), 10, 0, widthVentana / 6);
+    $("#puntuacion").html(puntuacion.toString());
 }
 
 /**
  * Funcion para gestionar el numero de mariposas eliminadas
  */
 function gestionPuntuacionMariposas() {
-
+    $("#mariposas").html(cuentaMariposas.toString());
 }
 
 function drawInTopBar(aux) {
