@@ -21,11 +21,15 @@ var heightVentana = window.innerHeight;
 var arrFly = new Array();
 //Imagen mosquito
 var flyImg = new Image();
-flyImg.addEventListener('load', function () {},{once: true});
+flyImg.addEventListener('load', function () { }, { once: true });
 flyImg.src = "img/fly.png";
 //Array de mariposas
 var arrButterfly = new Array();
 //Imagen mariposa
 var butterflyImg = new Image();
-butterflyImg.addEventListener('load', function () {},{once: true});
+butterflyImg.addEventListener('load', function () { }, { once: true });
 butterflyImg.src = "img/butterfly.png";
+//Imagen mano
+var hitImg = new Image();
+hitImg.addEventListener('load', function () { }, { once: true });
+hitImg.src = "img/hit.png";

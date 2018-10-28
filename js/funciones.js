@@ -42,6 +42,20 @@ function gestionMariposas() {
     }
 }
 
+/**
+ * Funciones para gestionar el toque en la pantalla
+ */
+function gestionarToque() {
+    $("#gameCanvas").click(function () {
+        console.log("Has hecho cick");
+        console.log("Has hecho click en: " + event.clientX + ", " + event.clientY);
+    });
+}
+
+function toque() {
+    console.log("Has hecho click en: " + event.clientX + ", " + event.clientY);
+}
+
 function clearCanvas() {
     backgroundContext.clearRect(0, 0, widthVentana, heightVentana);
     gameContext.clearRect(0, 0, widthVentana, heightVentana);
