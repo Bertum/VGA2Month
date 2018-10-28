@@ -96,7 +96,7 @@ function toque(posx, posy) {
             /*flyImg.src = "img/fly_small.png"
             gameContext.drawImage(arrFly[i].sprite, arrFly[i].posX, arrFly[i].posY);
             flyImg.src = "img/bloodsplat2.png"*/
-            arrFly.splice(i, 1);
+            arrFly.splice(f, 1);
         }
         else {
             arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
@@ -104,8 +104,8 @@ function toque(posx, posy) {
             //hitDone = 1;
         }
     }
-    for (var i = 0; i < numButterfly; i++) {
-        if (posx > arrButterfly[i].posX && posx < arrButterfly[i].posX + arrButterfly[i].anchura && posy > arrButterfly[i].posY && posy < arrButterfly[i].posY + arrButterfly[i].altura) {
+    for (b in arrButterfly) {
+        if (posx > arrButterfly[b].posX && posx < arrButterfly[b].posX + arrButterfly[b].anchura && posy > arrButterfly[b].posY && posy < arrButterfly[b].posY + arrButterfly[b].altura) {
             console.log("le has dado a una mariposa");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
@@ -114,7 +114,7 @@ function toque(posx, posy) {
             /*butterflyImg.src = "img/bloodsplat2.png"
             gameContext.drawImage(arrButterfly[i].sprite, arrButterfly[i].posX, arrButterfly[i].posY);
             butterflyImg.src = "img/butterfly.png"*/
-            arrButterfly.splice(i, 1);
+            arrButterfly.splice(b, 1);
         }
         else {
             arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
