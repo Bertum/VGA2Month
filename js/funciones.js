@@ -87,8 +87,8 @@ function gestionarToque() {
 
 function toque(posx, posy) {
     //console.log("Has hecho click en: " + posx + ", " + posy);
-    for (var i = 0; i < numFly; i++) {
-        if (posx > arrFly[i].posX && posx < arrFly[i].posX + arrFly[i].anchura && posy > arrFly[i].posY && posy < arrFly[i].posY + arrFly[i].altura) {
+    for (f in arrFly) {
+        if (posx > arrFly[f].posX && posx < arrFly[f].posX + arrFly[f].anchura && posy > arrFly[f].posY && posy < arrFly[f].posY + arrFly[f].altura) {
             console.log("le has dado a una mosca");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
