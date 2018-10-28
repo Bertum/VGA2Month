@@ -36,25 +36,16 @@ function bucle() {
 		if (controlTiempo % 1000 == 0) {
 			//arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 5));
 		}
-		if(controlTiempo % 700 == 0){
+		if (controlTiempo % 700 == 0) {
 			accelerate();
 		}
 		gestionMoscas();
 		gestionMariposas();
 		//Gestionar la duración de la imagen del golpe
 		//duracionMano();
-		/*if (hitDone == 1) {
-			console.log("entro aqui");
-			gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-			/*if (hitCounter == 5) {
-				arrayManos.splice(arrayManos.length - 1, 1);
-				hitDone = 0;
-			}
-			else { hitCounter++; }
-	}*/
 		//Gestionar el control del tiempo en una funcion
 		controlTiempo++;
-		gestionCronometro();		
+		gestionCronometro();
 		gestionPuntuacion();
 		gestionPuntuacionMariposas();
 	}

@@ -10,24 +10,24 @@ function gestionCronometro() {
     }
     var tiempoSegundos = tiempoDeJuego / 60;
     var aux = Math.round(tiempoSegundos * 100) / 100;
-    topBarContext.strokeText(aux.toString() ,10,0,widthVentana/3);
+    topBarContext.strokeText(aux.toString(), 10, 0, widthVentana / 3);
 }
 
 /**
  * Funcion para gestionar la puntuacion
  */
-function gestionPuntuacion() { 
-    topBarContext.strokeText(puntuacion.toString() ,10,0,widthVentana/6);
+function gestionPuntuacion() {
+    topBarContext.strokeText(puntuacion.toString(), 10, 0, widthVentana / 6);
 }
 
 /**
  * Funcion para gestionar el numero de mariposas eliminadas
  */
-function gestionPuntuacionMariposas(){
+function gestionPuntuacionMariposas() {
 
 }
 
-function drawInTopBar (aux){
+function drawInTopBar(aux) {
 
 }
 
@@ -67,10 +67,10 @@ function gestionMariposas() {
  */
 function accelerate() {
     for (var f in arrFly) {
-        arrFly[f].accelerate((controlTiempo%700+1)*speed);
+        arrFly[f].accelerate((controlTiempo % 700 + 1) * speed);
     }
     for (var b in arrButterfly) {
-        arrButterfly[b].accelerate((controlTiempo%700+1)*speed);
+        arrButterfly[b].accelerate((controlTiempo % 700 + 1) * speed);
     }
 }
 
@@ -115,7 +115,7 @@ function toque(posx, posy) {
             //hitDone = 1;
             // }
             cuentaMariposas++;
-            butterflyImg.src = "img/bloodsplat2.png"
+            //butterflyImg.src = "img/bloodsplat2.png"
         }
         else {
             // if (hitDone == 0) {
