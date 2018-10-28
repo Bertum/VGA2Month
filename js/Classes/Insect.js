@@ -8,8 +8,8 @@ function Insect(src, posX, posY, vida) {
     this.damageTaken = 0;
     this.movX = 0;
     this.movY = 0;
-    this.velocX = 0;
-    this.velocY = 0;
+    this.velocX = 1;
+    this.velocY = 1;
 }
 
 Insect.prototype.movement = function () {
@@ -18,17 +18,22 @@ Insect.prototype.movement = function () {
     var dir = Math.floor(Math.random() * 7 % 4);
     switch (dir) {
         case 0:
-            this.posY--;
+            this.posY-=this.velocY;
             break;
         case 1:
-            this.posX++;
+            this.posX+=this.velocX;
             break;
         case 2:
-            this.posY++;
+            this.posY+=this.velocY;
             break;
         case 3:
-            this.posX--;
+            this.posX-=this.velocX;
             break;
     }
     gameContext.drawImage(this.sprite, this.posX, this.posY);
+}
+
+Insect.prototype.accelerate = function () {
+    this.velocX*=5;
+    this.velocY*=5;
 }

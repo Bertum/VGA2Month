@@ -19,11 +19,11 @@ function bucle() {
 		clearCanvas();
 		//Si no estamos parados
 		//Generamos moscas cada X
-		if (controlTiempo * Math.random() % 3) {
+		if (controlTiempo * Math.random() % 300) {
 			arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos mariposas cada Y
-		if (controlTiempo % 100) {
+		if (controlTiempo % 1000) {
 			arrButterfly.push(new Butterfly(butterflyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos megaMoscas cada Z
