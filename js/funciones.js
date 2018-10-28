@@ -9,7 +9,26 @@ function gestionCronometro() {
         tiempoDeJuego = tiempoContrareloj - controlTiempo;
     }
     var tiempoSegundos = tiempoDeJuego / 60;
-    $("#tiempo").html(Math.round(tiempoSegundos * 100) / 100);
+    var aux = Math.round(tiempoSegundos * 100) / 100;
+    topBarContext.strokeText(aux.toString() ,10,0,widthVentana/3);
+}
+
+/**
+ * Funcion para gestionar la puntuacion
+ */
+function gestionPuntuacion() { 
+    topBarContext.strokeText(puntuacion.toString() ,10,0,widthVentana/6);
+}
+
+/**
+ * Funcion para gestionar el numero de mariposas eliminadas
+ */
+function gestionPuntuacionMariposas(){
+
+}
+
+function drawInTopBar (aux){
+
 }
 
 /**
@@ -40,6 +59,18 @@ function gestionMariposas() {
     $('#gameCanvas').html("");
     for (var b in arrButterfly) {
         arrButterfly[b].movement();
+    }
+}
+
+/**
+ * Funcion para gestionar el display de los mosquitos
+ */
+function accelerate() {
+    for (var f in arrFly) {
+        arrFly[f].accelerate((controlTiempo%700+1)*speed);
+    }
+    for (var b in arrButterfly) {
+        arrButterfly[b].accelerate((controlTiempo%700+1)*speed);
     }
 }
 

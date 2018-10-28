@@ -8,15 +8,14 @@ function Insect(src, posX, posY, vida) {
     this.damageTaken = 0;
     this.movX = 0;
     this.movY = 0;
-    this.velocX = 1;
-    this.velocY = 1;
+    this.velocX = 5;
+    this.velocY = 5;
 }
 
 Insect.prototype.movement = function () {
     //Funcion de movimiento de la mosca
     //dir 0 top; 1 right; 2 down; 3 left
     var dir = Math.floor(Math.random() * 7 % 4);
-    //this.accelerate();
     switch (dir) {
         case 0:
             this.posY -= this.velocY;
@@ -34,7 +33,7 @@ Insect.prototype.movement = function () {
     gameContext.drawImage(this.sprite, this.posX, this.posY);
 }
 
-Insect.prototype.accelerate = function () {
-    this.velocX += 0.01;
-    this.velocY += 0.01;
+Insect.prototype.accelerate = function (newSpeed) {
+    this.velocX = newSpeed;
+    this.velocY = newSpeed;
 }

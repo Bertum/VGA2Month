@@ -33,8 +33,11 @@ function bucle() {
 			numButterfly++;
 		}
 		//Generamos megaMoscas cada Z
-		if (controlTiempo % 500) {
-
+		if (controlTiempo % 1000 == 0) {
+			//arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 5));
+		}
+		if(controlTiempo % 700 == 0){
+			accelerate();
 		}
 		gestionMoscas();
 		gestionMariposas();
@@ -51,7 +54,9 @@ function bucle() {
 	}*/
 		//Gestionar el control del tiempo en una funcion
 		controlTiempo++;
-		gestionCronometro();
+		gestionCronometro();		
+		gestionPuntuacion();
+		gestionPuntuacionMariposas();
 	}
 	clearTimeout(temporizador);
 	temporizador = setTimeout("bucle()", 15);
@@ -59,7 +64,7 @@ function bucle() {
 }
 
 function finDelJuego() {
-	if (cuentaMariposas >= limiteMariposas) {
+	if (cuentaMariposas >= limiteMariposas || tiempoContrareloj - controlTiempo <= 0) {
 		window.location.href = "gameOver.html";
 	}
 }
