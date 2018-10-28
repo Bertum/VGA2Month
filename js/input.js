@@ -1,4 +1,6 @@
-$(document).click(function () {
-    gamePaused = false;
-    hideHelptText();
+$(document).click(function (event) {
+    if (!$(event.target).is("#helpIcon")) {
+        gamePaused = false;
+        hideHelptText();
+    }
 });
