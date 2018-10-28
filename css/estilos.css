@@ -98,15 +98,6 @@ h1{
 	background-size:cover;
 }
 
-#puntuacion{
-	position:absolute;
-	top:0px;
-	right:0px;
-	background:black;
-	color:white;
-	font-family:sans-serif;
-	font-size:72px
-}
 .control{width:300px;height:300px;opacity:0.5;position:absolute;}
 .canvas-container{
 	width: 100%;
@@ -149,13 +140,6 @@ h1{
 	height: 147px;
 }
 
-#tiempo{
-	position: absolute;
-	color:white;
-	width: 100px;
-	height: 50px;
-}
-
 .alignCenter{
 	text-align: center;
 }
@@ -171,4 +155,19 @@ h1{
 	width: 50px;
 	height: 50px;
 	z-index: 10;
+}
+
+#puntuaciones{
+	position: absolute;
+	text-align: center;
+	color:white;
+	display: inline-flex;
+	width: 100%;	
+	height: 25px;
+	background: url("../img/help_text.png");
+	background-size: cover;
+}
+
+.separador{
+	width: 33%;
 }
