@@ -7,6 +7,8 @@ function inicio() {
 	if (level == 2) {
 		$("#tiempo").html(tiempoContrareloj/1000);
 	}*/
+	$("#helpTextLevel1").hide();
+	$("#helpTextLevel1").hide();
 	$("canvas").attr("width", widthVentana);
 	$("canvas").attr("height", heightVentana);
 	temporizador = setTimeout("bucle()", 1000);
@@ -19,7 +21,7 @@ function bucle() {
 		clearCanvas();
 		//Si no estamos parados
 		//Generamos moscas cada X
-		if (controlTiempo * Math.random() % 300) {
+		if (controlTiempo * Math.random() % 1000) {
 			arrFly.push(new Fly(flyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 		}
 		//Generamos mariposas cada Y

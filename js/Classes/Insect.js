@@ -18,22 +18,22 @@ Insect.prototype.movement = function () {
     var dir = Math.floor(Math.random() * 7 % 4);
     switch (dir) {
         case 0:
-            this.posY-=this.velocY;
+            this.posY -= this.velocY;
             break;
         case 1:
-            this.posX+=this.velocX;
+            this.posX += this.velocX;
             break;
         case 2:
-            this.posY+=this.velocY;
+            this.posY += this.velocY;
             break;
         case 3:
-            this.posX-=this.velocX;
+            this.posX -= this.velocX;
             break;
     }
     gameContext.drawImage(this.sprite, this.posX, this.posY);
 }
 
 Insect.prototype.accelerate = function () {
-    this.velocX*=5;
-    this.velocY*=5;
+    this.velocX *= 5;
+    this.velocY *= 5;
 }

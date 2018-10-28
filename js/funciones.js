@@ -16,10 +16,12 @@ function gestionCronometro() {
  */
 function displayHelpText() {
     if (level == 1) {
-        $("#helpCanvas").append("<div id='helpText'><div id='helpHead'>Arcade</div><div id='helpBody'>En este modo, tu objetivo es aplastar tantos mosquitos como sea posible, Cuidado! Mata " + limiteMariposas + " mariposas y perderas!</div></div>");
+        //$("#helpCanvas").append("<div id='helpText'><div id='helpHead'>Arcade</div><div id='helpBody'>En este modo, tu objetivo es aplastar tantos mosquitos como sea posible, Cuidado! Mata " + limiteMariposas + " mariposas y perderas!</div></div>");
+        $("#helpTextLevel1").show();
     }
     else {
-        $("#helpCanvas").append("<div id='helpText'><div id='helpHead'>Contrareloj</div><div id='helpBody'>En este modo, tu objetivo es aplastar tantos mosquitos como sea posible dentro del limite de tiempo, Cuidado! Mata " + limiteMariposas + " mariposas y perderas!</div></div>");
+        //$("#helpCanvas").append("<div id='helpText'><div id='helpHead'>Contrareloj</div><div id='helpBody'>En este modo, tu objetivo es aplastar tantos mosquitos como sea posible dentro del limite de tiempo, Cuidado! Mata " + limiteMariposas + " mariposas y perderas!</div></div>");
+        $("#helpTextLevel2").show();
     }
 }
 
