@@ -48,6 +48,9 @@ function displayHelpText() {
 function gestionMoscas() {
     for (var f in arrFly) {
         arrFly[f].movement();
+        if (CheckOutScreen(arrFly[f])) {
+            arrFly.splice(f, 1);
+        }
     }
 }
 
@@ -58,7 +61,22 @@ function gestionMariposas() {
     $('#gameCanvas').html("");
     for (var b in arrButterfly) {
         arrButterfly[b].movement();
+        if (CheckOutScreen(arrButterfly[b])) {
+            arrButterfly.splice(b, 1);
+        }
     }
+}
+
+/**
+ * Funcion que comprueba si el sprite sale de la pantalla para eliminarlo
+ */
+function CheckOutScreen(insecto) {
+    var out = false;
+    if (insecto.posX + insecto.anchura < 0 || insecto.posX - insecto.anchura > window.innerWidth
+        || insecto.posY + insecto.altura < 0 || insecto.posY - insecto.altura > window.innerHeight) {
+        out = true;
+    }
+    return out;
 }
 
 /**
