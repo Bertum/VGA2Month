@@ -121,6 +121,8 @@ h1{
 #puntuacionGameOver{
 	font-family: 'BlockCartoon';
 	color: white;
+	font-size: 35px;
+	margin-top: 40%;
 }
 
 #gameOver, #gameOverBackground{
@@ -130,13 +132,14 @@ h1{
 }
 
 .helpText{
-	display: table;
+	width: 50%;
     margin: 0 auto;
-	margin-top: 5%;
+	margin-top: 50%;
 	background: url("../img/help_text.png");
 	background-size: cover;
 	color: white;
-	height: 147px;
+	height: 375px;
+	font-size: 35px;
 }
 
 .alignCenter{
@@ -166,6 +169,7 @@ h1{
 	background: url("../img/help_text.png");
 	background-size: cover;
 	padding-top: 10px;
+	font-size: 30px;
 }
 
 .separador{
@@ -179,4 +183,9 @@ h1{
 
 .creditList{
 	margin-top:20px;
+}
+
+.helpDescription{
+	margin:13px;
+	font-size: 30px;
 }
