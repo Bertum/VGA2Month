@@ -55,7 +55,7 @@ function gestionMoscas() {
 }
 
 /**
- * Funcion para gestionar el display de los mosquitos
+ * Funcion para gestionar el display de las mariposas
  */
 function gestionMariposas() {
     $('#gameCanvas').html("");
@@ -63,6 +63,18 @@ function gestionMariposas() {
         arrButterfly[b].movement();
         if (CheckOutScreen(arrButterfly[b])) {
             arrButterfly.splice(b, 1);
+        }
+    }
+}
+
+/**
+ * Funcion para gestionar el display de las avispas
+ */
+function gestionAvispas() {
+    for (var w in arrWasp) {
+        arrWasp[w].movement();
+        if (CheckOutScreen(arrWasp[w])) {
+            arrWasp.splice(w, 1);
         }
     }
 }
@@ -89,6 +101,9 @@ function accelerate() {
     for (var b in arrButterfly) {
         arrButterfly[b].accelerate((controlTiempo % 700 + 1) * speed);
     }
+    for (var w in arrWasp) {
+        arrWasp[w].accelerate((controlTiempo % 700 + 1) * speed);
+    }
 }
 
 /**
@@ -109,8 +124,11 @@ function toque(posx, posy) {
             console.log("le has dado a una mosca");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+            arrFly[f].vida--;
             puntuacion += 10;
-            arrFly.splice(f, 1);
+            if(arrFly[f].vida == 0){
+                arrFly.splice(f, 1);
+            }
         }
         else {
             arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
@@ -124,6 +142,19 @@ function toque(posx, posy) {
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
             cuentaMariposas++;
             arrButterfly.splice(b, 1);
+        }
+        else {
+            arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
+            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+        }
+    }
+    for (w in arrWasp) {
+        if (posx > arrWasp[w].posX && posx < arrWasp[w].posX + arrWasp[w].anchura && posy > arrWasp[w].posY && posy < arrWasp[w].posY + arrWasp[w].altura) {
+            console.log("le has dado a una avispa");
+            arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
+            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+            puntuacion += 30;
+            arrWasp.splice(w, 1);
         }
         else {
             arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
