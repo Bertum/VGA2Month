@@ -124,8 +124,9 @@ function toque(posx, posy) {
             console.log("le has dado a una mosca");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+            if (arrFly[f].vida == 1) { puntuacion += 10; }
+            else { puntuacion += golpe * 10; }
             arrFly[f].vida = arrFly[f].vida - golpe;
-            puntuacion += 10;
             if (arrFly[f].vida <= 0) {
                 arrFly.splice(f, 1);
             }
