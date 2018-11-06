@@ -52,3 +52,16 @@ hitImg.addEventListener('load', function () { }, { once: true });
 hitImg.src = "img/hit.png";
 hitDone = 0;
 hitCount = 0;
+golpe = 1;
+//Powerups
+var nPowerups = 0;
+var powerup = new Array();
+var tiempoefecto = 0;
+var activo = 0;
+
+var golpeimg = new Image();
+var velbichoimg = new Image();
+
+
+golpeimg.src = "img/punch_powerup.png";
+velbichoimg.src = "img/slow_powerup.png";

@@ -43,9 +43,13 @@ function bucle() {
 		if (controlTiempo % 700 == 0) {
 			accelerate();
 		}
+		if (controlTiempo % 500 == 0) {
+			spawnPowerup();
+		}
 		gestionMoscas();
 		gestionMariposas();
 		gestionAvispas();
+		gestionPowerups();
 		//Gestionar la duración de la imagen del golpe
 		//duracionMano();
 		//Gestionar el control del tiempo en una funcion
@@ -61,7 +65,7 @@ function bucle() {
 
 function finDelJuego() {
 	if (cuentaMariposas >= limiteMariposas || (tiempoContrareloj - controlTiempo <= 0 && level == 2)) {
-		localStorage.setItem("puntuacion",puntuacion);
+		localStorage.setItem("puntuacion", puntuacion);
 		window.location.href = "gameOver.html";
 	}
 }

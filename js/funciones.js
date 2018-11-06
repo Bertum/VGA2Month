@@ -124,9 +124,9 @@ function toque(posx, posy) {
             console.log("le has dado a una mosca");
             arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-            arrFly[f].vida--;
+            arrFly[f].vida = arrFly[f].vida - golpe;
             puntuacion += 10;
-            if(arrFly[f].vida == 0){
+            if (arrFly[f].vida <= 0) {
                 arrFly.splice(f, 1);
             }
         }
@@ -161,6 +161,19 @@ function toque(posx, posy) {
             gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
         }
     }
+    for (p in powerup) {
+
+        if (posx > powerup[p].posX && posx < powerup[p].posX + powerup[p].anchura && posy > powerup[p].posY && posy < powerup[p].posY + powerup[p].altura) {
+            //Activamos el efecto
+            activo = 1;
+            activarPowerup(powerup[p].efecto);
+            //Borramos el powerup
+            nPowerups = 0;
+            powerup.splice(p, 1);
+            //Añadimos el audio de muerte de enemigo
+            break;
+        }
+    }
 }
 
 function duracionMano() {
@@ -183,4 +196,57 @@ function clearCanvas() {
 function hideHelptText() {
     $("#helpTextLevel1").hide();
     $("#helpTextLevel2").hide();
+}
+
+function randomRangeNumber(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+function spawnPowerup() {
+    //Solo 1 powerup en pantalla a la vez
+    if (nPowerups == 0) {
+        var image = new Image();
+        var rnd = randomRangeNumber(0, 1);
+        var efecto = 0;
+        switch (rnd) {
+            case 0: image = golpeimg; efecto = 1;
+                break;
+            case 1: image = velbichoimg; efecto = 2;
+                break;
+        }
+        nPowerups = 1;
+        powerup.push(new Powerup(image, Math.random() * widthVentana - 200, Math.random() * heightVentana - 200, efecto));
+    }
+}
+
+function gestionPowerups() {
+    for (var p in powerup) {
+        gameContext.drawImage(powerup[p].sprite, powerup[p].posX, powerup[p].posY)
+        if (activo == 1) { tiempoefecto++; }
+        if (tiempoefecto >= 500) {
+            desactivarPowerup(powerup[p].efecto);
+            tiempoefecto = 0;
+        }
+    }
+}
+
+function activarPowerup(efecto) {
+    switch (efecto) {
+        case 1:
+            golpe = 5;
+            break;
+        case 2:
+            break;
+    }
+}
+
+function desactivarPowerup(efecto) {
+    activo = 0;
+    switch (efecto) {
+        case 1:
+            golpe = 1;
+            break;
+        case 2:
+            break;
+    }
 }
