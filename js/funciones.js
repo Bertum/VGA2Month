@@ -127,8 +127,8 @@ function toque(posx, posy) {
             console.log("le has dado a una mosca");
             //console.log("golpe: " + golpe);
             insectoGolpeado(arrFly[f].posX, arrFly[f].posY);
-            if (arrFly[f].vida == 1) { puntuacion += 10; }
-            else { puntuacion += golpe * 10; }
+            if (arrFly[f].vida == 1) { puntuacion += (10) * bonus; }
+            else { puntuacion += (golpe * 10) * bonus; }
             arrFly[f].vida = arrFly[f].vida - golpe;
             if (arrFly[f].vida <= 0) {
                 arrFly.splice(f, 1);
@@ -147,7 +147,7 @@ function toque(posx, posy) {
         if (posx > arrWasp[w].posX && posx < arrWasp[w].posX + arrWasp[w].anchura && posy > arrWasp[w].posY && posy < arrWasp[w].posY + arrWasp[w].altura) {
             console.log("le has dado a una avispa");
             insectoGolpeado(arrWasp[w].posX, arrWasp[w].posY);
-            puntuacion += 30;
+            puntuacion += (30) * bonus;
             arrWasp.splice(w, 1);
         }
     }
@@ -161,8 +161,8 @@ function toque(posx, posy) {
             break;
         }
     }
-    if(miss){
-        missInsecto(posx,posy);
+    if (miss) {
+        missInsecto(posx, posy);
     }
 }
 
@@ -200,15 +200,18 @@ function spawnPowerup() {
     //Solo 1 powerup en pantalla a la vez
     if (nPowerups == 0) {
         var image = new Image();
-        var rnd = randomRangeNumber(0, 1);
+        var rnd = randomRangeNumber(0, 2);
         switch (rnd) {
             case 0: image = golpeimg; efecto = 1;
                 break;
             case 1: image = velbichoimg; efecto = 2;
                 break;
+            case 2: image = doblesimg; efecto = 3;
+                break;
         }
         nPowerups = 1;
         powerup.push(new Powerup(image, Math.random() * widthVentana - 200, Math.random() * heightVentana - 200, efecto));
+        console.log("Ha aparecido el powerup " + efecto);
     }
 }
 
@@ -248,6 +251,9 @@ function activarPowerup(efecto) {
                 arrWasp[w].accelerate(speed);
             }
             break;
+        case 3:
+            bonus = 2;
+            break;
     }
 }
 
@@ -270,6 +276,9 @@ function desactivarPowerup(efecto) {
                 arrWasp[w].accelerate(vw);
             }
             console.log(slow);
+            break;
+        case 3:
+            bonus = 1;
             break;
     }
 }
