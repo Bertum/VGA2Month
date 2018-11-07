@@ -40,7 +40,8 @@ function bucle() {
 		if (controlTiempo % 500 == 5) {
 			arrFly.push(new Fly(megaFlyImg, Math.random() * widthVentana, Math.random() * heightVentana, 5));
 		}
-		if (controlTiempo % 700 == 0) {
+		if ((controlTiempo % 700 == 0) && (slow == 0)) {
+			console.log("sigue acelerando");
 			accelerate();
 		}
 		if (controlTiempo % 500 == 0) {

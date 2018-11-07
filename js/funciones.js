@@ -122,7 +122,8 @@ function toque(posx, posy) {
     for (f in arrFly) {
         if (posx > arrFly[f].posX && posx < arrFly[f].posX + arrFly[f].anchura && posy > arrFly[f].posY && posy < arrFly[f].posY + arrFly[f].altura) {
             console.log("le has dado a una mosca");
-            insectoGolpeado(arrFly[f].posX,arrFly[f].posY);
+            console.log("golpe: " + golpe);
+            insectoGolpeado(arrFly[f].posX, arrFly[f].posY);
             if (arrFly[f].vida == 1) { puntuacion += 10; }
             else { puntuacion += golpe * 10; }
             arrFly[f].vida = arrFly[f].vida - golpe;
@@ -130,30 +131,30 @@ function toque(posx, posy) {
                 arrFly.splice(f, 1);
             }
         }
-        else{
-            missInsecto(posx,posy);
+        else {
+            missInsecto(posx, posy);
         }
     }
     for (b in arrButterfly) {
         if (posx > arrButterfly[b].posX && posx < arrButterfly[b].posX + arrButterfly[b].anchura && posy > arrButterfly[b].posY && posy < arrButterfly[b].posY + arrButterfly[b].altura) {
             console.log("le has dado a una mariposa");
-            insectoGolpeado(arrButterfly[b].posX,arrButterfly[b].posY);
+            insectoGolpeado(arrButterfly[b].posX, arrButterfly[b].posY);
             cuentaMariposas++;
             arrButterfly.splice(b, 1);
         }
-        else{
-            missInsecto(posx,posy);
+        else {
+            missInsecto(posx, posy);
         }
     }
     for (w in arrWasp) {
         if (posx > arrWasp[w].posX && posx < arrWasp[w].posX + arrWasp[w].anchura && posy > arrWasp[w].posY && posy < arrWasp[w].posY + arrWasp[w].altura) {
-            console.log("le has dado a una avispa"); 
-            insectoGolpeado(arrWasp[w].posX,arrWasp[w].posY);
+            console.log("le has dado a una avispa");
+            insectoGolpeado(arrWasp[w].posX, arrWasp[w].posY);
             puntuacion += 30;
             arrWasp.splice(w, 1);
         }
-        else{
-            missInsecto(posx,posy);
+        else {
+            missInsecto(posx, posy);
         }
     }
     for (p in powerup) {
@@ -171,18 +172,18 @@ function toque(posx, posy) {
     }
 }
 
-function insectoGolpeado(x,y) {
-    $("#theHandSplash").css("left",x+"px");
-    $("#theHandSplash").css("top",y+"px");    
+function insectoGolpeado(x, y) {
+    $("#theHandSplash").css("left", x + "px");
+    $("#theHandSplash").css("top", y + "px");
     $("#theHandSplash").addClass("handCooldown");
-    setTimeout(function(){$("#theHandSplash").removeClass("handCooldown");},200);
+    setTimeout(function () { $("#theHandSplash").removeClass("handCooldown"); }, 200);
 }
 
-function missInsecto(x,y){
-    $("#theHand").css("left",x+"px");
-    $("#theHand").css("top",y+"px");    
+function missInsecto(x, y) {
+    $("#theHand").css("left", x + "px");
+    $("#theHand").css("top", y + "px");
     $("#theHand").addClass("handCooldown");
-    setTimeout(function(){$("#theHand").removeClass("handCooldown");},200);
+    setTimeout(function () { $("#theHand").removeClass("handCooldown"); }, 200);
 }
 
 function clearCanvas() {
@@ -219,6 +220,7 @@ function spawnPowerup() {
 function gestionPowerups() {
     for (var p in powerup) {
         gameContext.drawImage(powerup[p].sprite, powerup[p].posX, powerup[p].posY)
+        console.log("tiempoefecto: " + tiempoefecto);
         if (activo == 1) { tiempoefecto++; }
         if (tiempoefecto >= 500) {
             desactivarPowerup(powerup[p].efecto);
@@ -233,6 +235,19 @@ function activarPowerup(efecto) {
             golpe = 5;
             break;
         case 2:
+            slow = 1;
+            for (var f in arrFly) {
+                vf = arrFly[f].velocX;
+                arrFly[f].accelerate(speed - 5);
+            }
+            for (var b in arrButterfly) {
+                vb = arrButterfly[b].velocX;
+                arrButterfly[b].accelerate(speed - 5);
+            }
+            for (var w in arrWasp) {
+                vw = arrWasp[w].velocX;
+                arrWasp[w].accelerate(speed - 5);
+            }
             break;
     }
 }
@@ -244,6 +259,16 @@ function desactivarPowerup(efecto) {
             golpe = 1;
             break;
         case 2:
+            slow = 0;
+            for (var f in arrFly) {
+                arrFly[f].accelerate(vf);
+            }
+            for (var b in arrButterfly) {
+                arrButterfly[b].accelerate(vb);
+            }
+            for (var w in arrWasp) {
+                arrWasp[w].accelerate(vw);
+            }
             break;
     }
 }

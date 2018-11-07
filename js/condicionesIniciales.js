@@ -50,14 +50,19 @@ handImg.src = "img/hand_small.png";
 var hitImg = new Image();
 hitImg.addEventListener('load', function () { }, { once: true });
 hitImg.src = "img/hit.png";
-hitDone = 0;
-hitCount = 0;
-golpe = 1;
+//hitDone = 0;
+
 //Powerups
 var nPowerups = 0;
 var powerup = new Array();
 var tiempoefecto = 0;
 var activo = 0;
+//var hitCount = 0;
+var golpe = 1;
+var vf = 0;
+var vb = 0;
+var vw = 0;
+var slow = 0;
 
 var golpeimg = new Image();
 var velbichoimg = new Image();
