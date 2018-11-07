@@ -8,6 +8,7 @@ var puntuacion = 0;
 var level = 1;
 var speed = 6;
 var gamePaused = false;
+var miss = true;
 //Variables canvas
 var backgroundCanvas = document.getElementById("backgroundCanvas");
 var gameCanvas = document.getElementById("gameCanvas");

@@ -120,6 +120,7 @@ function gestionarToque() {
 }
 
 function toque(posx, posy) {
+    miss = true;
     //console.log("Has hecho click en: " + posx + ", " + posy);
     for (f in arrFly) {
         if (posx > arrFly[f].posX && posx < arrFly[f].posX + arrFly[f].anchura && posy > arrFly[f].posY && posy < arrFly[f].posY + arrFly[f].altura) {
@@ -133,9 +134,6 @@ function toque(posx, posy) {
                 arrFly.splice(f, 1);
             }
         }
-        else {
-            missInsecto(posx, posy);
-        }
     }
     for (b in arrButterfly) {
         if (posx > arrButterfly[b].posX && posx < arrButterfly[b].posX + arrButterfly[b].anchura && posy > arrButterfly[b].posY && posy < arrButterfly[b].posY + arrButterfly[b].altura) {
@@ -143,9 +141,6 @@ function toque(posx, posy) {
             insectoGolpeado(arrButterfly[b].posX, arrButterfly[b].posY);
             cuentaMariposas++;
             arrButterfly.splice(b, 1);
-        }
-        else {
-            missInsecto(posx, posy);
         }
     }
     for (w in arrWasp) {
@@ -155,12 +150,8 @@ function toque(posx, posy) {
             puntuacion += 30;
             arrWasp.splice(w, 1);
         }
-        else {
-            missInsecto(posx, posy);
-        }
     }
     for (p in powerup) {
-
         if (posx > powerup[p].posX && posx < powerup[p].posX + powerup[p].anchura && posy > powerup[p].posY && posy < powerup[p].posY + powerup[p].altura) {
             //Activamos el efecto
             activo = 1;
@@ -172,9 +163,13 @@ function toque(posx, posy) {
             break;
         }
     }
+    if(miss){
+        missInsecto(posx,posy);
+    }
 }
 
 function insectoGolpeado(x, y) {
+    miss = false;
     $("#theHandSplash").css("left", x + "px");
     $("#theHandSplash").css("top", y + "px");
     $("#theHandSplash").addClass("handCooldown");
@@ -182,6 +177,7 @@ function insectoGolpeado(x, y) {
 }
 
 function missInsecto(x, y) {
+    miss = true;
     $("#theHand").css("left", x + "px");
     $("#theHand").css("top", y + "px");
     $("#theHand").addClass("handCooldown");
