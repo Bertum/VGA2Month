@@ -111,6 +111,8 @@ function accelerate() {
  */
 function gestionarToque() {
     $(document).click(function (event) {
+        //$("#contieneAudio").append('<audio id="punch" src="audio/punch.ogg"  autoplay></audio>');
+        punchSound.play();
         if (!$(event.target).is("#gameCanvas")) {
             toque(event.clientX, event.clientY);
         }
@@ -272,3 +274,8 @@ function desactivarPowerup(efecto) {
             break;
     }
 }
+
+//Funcion con la que borraremos los sonidos 
+function borraSonidos() {
+    $("#contieneAudio").html("");
+} 

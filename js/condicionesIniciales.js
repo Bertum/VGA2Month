@@ -70,3 +70,5 @@ var velbichoimg = new Image();
 
 golpeimg.src = "img/punch_powerup.png";
 velbichoimg.src = "img/slow_powerup.png";
+
+var punchSound = new Audio("audio/punch.ogg");
