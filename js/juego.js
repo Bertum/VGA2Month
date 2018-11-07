@@ -46,6 +46,9 @@ function bucle() {
 		if (controlTiempo % 500 == 0) {
 			spawnPowerup();
 		}
+		/*if (controlTiempo % 500 == 0) {
+			borraSonidos();
+		}*/
 		gestionMoscas();
 		gestionMariposas();
 		gestionAvispas();
