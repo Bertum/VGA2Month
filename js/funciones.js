@@ -124,7 +124,7 @@ function toque(posx, posy) {
     for (f in arrFly) {
         if (posx > arrFly[f].posX && posx < arrFly[f].posX + arrFly[f].anchura && posy > arrFly[f].posY && posy < arrFly[f].posY + arrFly[f].altura) {
             console.log("le has dado a una mosca");
-            console.log("golpe: " + golpe);
+            //console.log("golpe: " + golpe);
             insectoGolpeado(arrFly[f].posX, arrFly[f].posY);
             if (arrFly[f].vida == 1) { puntuacion += 10; }
             else { puntuacion += golpe * 10; }
@@ -160,15 +160,12 @@ function toque(posx, posy) {
         }
     }
     for (p in powerup) {
-
         if (posx > powerup[p].posX && posx < powerup[p].posX + powerup[p].anchura && posy > powerup[p].posY && posy < powerup[p].posY + powerup[p].altura) {
             //Activamos el efecto
             activo = 1;
             activarPowerup(powerup[p].efecto);
             //Borramos el powerup
-            nPowerups = 0;
             powerup.splice(p, 1);
-            //Añadimos el audio de muerte de enemigo
             break;
         }
     }
@@ -207,7 +204,6 @@ function spawnPowerup() {
     if (nPowerups == 0) {
         var image = new Image();
         var rnd = randomRangeNumber(0, 1);
-        var efecto = 0;
         switch (rnd) {
             case 0: image = golpeimg; efecto = 1;
                 break;
@@ -220,14 +216,17 @@ function spawnPowerup() {
 }
 
 function gestionPowerups() {
+    //console.log(powerup);
     for (var p in powerup) {
         gameContext.drawImage(powerup[p].sprite, powerup[p].posX, powerup[p].posY)
-        console.log("tiempoefecto: " + tiempoefecto);
-        if (activo == 1) { tiempoefecto++; }
-        if (tiempoefecto >= 500) {
-            desactivarPowerup(powerup[p].efecto);
-            tiempoefecto = 0;
-        }
+        //console.log("tiempo efecto: " + tiempoefecto);
+    }
+    if (activo == 1) { tiempoefecto++; }
+    if (tiempoefecto >= 250) {
+        console.log("desactivamos el powerup " + efecto);
+        desactivarPowerup(efecto);
+        nPowerups = 0;
+        tiempoefecto = 0;
     }
 }
 
@@ -238,17 +237,18 @@ function activarPowerup(efecto) {
             break;
         case 2:
             slow = 1;
+            speed = 1;
             for (var f in arrFly) {
                 vf = arrFly[f].velocX;
-                arrFly[f].accelerate(speed - 5);
+                arrFly[f].accelerate(speed);
             }
             for (var b in arrButterfly) {
                 vb = arrButterfly[b].velocX;
-                arrButterfly[b].accelerate(speed - 5);
+                arrButterfly[b].accelerate(speed);
             }
             for (var w in arrWasp) {
                 vw = arrWasp[w].velocX;
-                arrWasp[w].accelerate(speed - 5);
+                arrWasp[w].accelerate(speed);
             }
             break;
     }
@@ -262,6 +262,7 @@ function desactivarPowerup(efecto) {
             break;
         case 2:
             slow = 0;
+            speed = 6;
             for (var f in arrFly) {
                 arrFly[f].accelerate(vf);
             }
@@ -271,6 +272,7 @@ function desactivarPowerup(efecto) {
             for (var w in arrWasp) {
                 arrWasp[w].accelerate(vw);
             }
+            console.log(slow);
             break;
     }
 }

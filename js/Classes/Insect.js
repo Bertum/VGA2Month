@@ -8,8 +8,8 @@ function Insect(src, posX, posY, vida) {
     this.damageTaken = 0;
     this.movX = 0;
     this.movY = 0;
-    this.velocX = 5;
-    this.velocY = 5;
+    this.velocX = speed;
+    this.velocY = speed;
 }
 
 Insect.prototype.movement = function () {

@@ -56,6 +56,7 @@ hitImg.src = "img/hit.png";
 var nPowerups = 0;
 var powerup = new Array();
 var tiempoefecto = 0;
+var efecto = 0;
 var activo = 0;
 //var hitCount = 0;
 var golpe = 1;
