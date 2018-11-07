@@ -122,8 +122,7 @@ function toque(posx, posy) {
     for (f in arrFly) {
         if (posx > arrFly[f].posX && posx < arrFly[f].posX + arrFly[f].anchura && posy > arrFly[f].posY && posy < arrFly[f].posY + arrFly[f].altura) {
             console.log("le has dado a una mosca");
-            arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
-            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+            insectoGolpeado(arrFly[f].posX,arrFly[f].posY);
             if (arrFly[f].vida == 1) { puntuacion += 10; }
             else { puntuacion += golpe * 10; }
             arrFly[f].vida = arrFly[f].vida - golpe;
@@ -131,35 +130,30 @@ function toque(posx, posy) {
                 arrFly.splice(f, 1);
             }
         }
-        else {
-            arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
-            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+        else{
+            missInsecto(posx,posy);
         }
     }
     for (b in arrButterfly) {
         if (posx > arrButterfly[b].posX && posx < arrButterfly[b].posX + arrButterfly[b].anchura && posy > arrButterfly[b].posY && posy < arrButterfly[b].posY + arrButterfly[b].altura) {
             console.log("le has dado a una mariposa");
-            arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
-            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+            insectoGolpeado(arrButterfly[b].posX,arrButterfly[b].posY);
             cuentaMariposas++;
             arrButterfly.splice(b, 1);
         }
-        else {
-            arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
-            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+        else{
+            missInsecto(posx,posy);
         }
     }
     for (w in arrWasp) {
         if (posx > arrWasp[w].posX && posx < arrWasp[w].posX + arrWasp[w].anchura && posy > arrWasp[w].posY && posy < arrWasp[w].posY + arrWasp[w].altura) {
-            console.log("le has dado a una avispa");
-            arrayManos.push(new Hand(hitImg, posx - hitImg.width / 2, posy - hitImg.height / 2));
-            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+            console.log("le has dado a una avispa"); 
+            insectoGolpeado(arrWasp[w].posX,arrWasp[w].posY);
             puntuacion += 30;
             arrWasp.splice(w, 1);
         }
-        else {
-            arrayManos.push(new Hand(handImg, posx - handImg.width / 2, posy - handImg.height / 2));
-            gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
+        else{
+            missInsecto(posx,posy);
         }
     }
     for (p in powerup) {
@@ -177,16 +171,18 @@ function toque(posx, posy) {
     }
 }
 
-function duracionMano() {
-    if (hitDone == 1) {
-        console.log("entro aqui");
-        gameContext.drawImage(arrayManos[arrayManos.length - 1].sprite, arrayManos[arrayManos.length - 1].posX, arrayManos[arrayManos.length - 1].posY);
-        if (hitCount == 50) {
-            arrayManos.splice(arrayManos.length - 1, 1);
-            hitDone = 0;
-        }
-        else { hitCount++; }
-    }
+function insectoGolpeado(x,y) {
+    $("#theHandSplash").css("left",x+"px");
+    $("#theHandSplash").css("top",y+"px");    
+    $("#theHandSplash").addClass("handCooldown");
+    setTimeout(function(){$("#theHandSplash").removeClass("handCooldown");},200);
+}
+
+function missInsecto(x,y){
+    $("#theHand").css("left",x+"px");
+    $("#theHand").css("top",y+"px");    
+    $("#theHand").addClass("handCooldown");
+    setTimeout(function(){$("#theHand").removeClass("handCooldown");},200);
 }
 
 function clearCanvas() {
