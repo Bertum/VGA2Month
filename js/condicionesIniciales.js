@@ -66,14 +66,18 @@ var vb = 0;
 var vw = 0;
 var slow = 0;
 var bonus = 1;
+var shieldup = 0;
+var shieldused = 0;
 
 var golpeimg = new Image();
 var velbichoimg = new Image();
 var doblesimg = new Image();
+var shieldimg = new Image();
 
 
 golpeimg.src = "img/punch_powerup.png";
 velbichoimg.src = "img/slow_powerup.png";
 doblesimg.src = "img/double_powerup.png";
+shieldimg.src = "img/shield_powerup.png";
 
 var punchSound = new Audio("audio/punch.ogg");
