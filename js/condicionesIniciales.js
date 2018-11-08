@@ -23,7 +23,7 @@ var arrFly = new Array();
 //Imagen mosquito
 var flyImg = new Image();
 flyImg.addEventListener('load', function () { }, { once: true });
-flyImg.src = "img/fly_small.png";
+flyImg.src = "img/mosca_olga.png";
 //Array de mariposas
 var arrButterfly = new Array();
 //Array de avispas
@@ -39,7 +39,7 @@ waspImg.src = "img/wasp.png";
 //Imagen megaMosca
 var megaFlyImg = new Image();
 megaFlyImg.addEventListener('load', function () { }, { once: true });
-megaFlyImg.src = "img/fly.png";
+megaFlyImg.src = "img/megamosca_olga.png";
 //Array de manos
 var arrayManos = new Array();
 var numManos = 0;

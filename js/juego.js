@@ -32,19 +32,19 @@ function bucle() {
 			arrButterfly.push(new Butterfly(butterflyImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 
 		}
-		if (controlTiempo % 300 == 2) {
+		if (controlTiempo % 300 == 50) {
 			arrWasp.push(new Wasp(waspImg, Math.random() * widthVentana, Math.random() * heightVentana, 1));
 
 		}
 		//Generamos megaMoscas cada Z
-		if (controlTiempo % 500 == 5) {
+		if (controlTiempo % 500 == 200) {
 			arrFly.push(new Fly(megaFlyImg, Math.random() * widthVentana, Math.random() * heightVentana, 5));
 		}
 		if ((controlTiempo % 700 == 0) && (slow == 0)) {
 			//console.log("sigue acelerando");
 			accelerate();
 		}
-		if (controlTiempo % 500 == 0) {
+		if (controlTiempo % 500 == 499) {
 			spawnPowerup();
 		}
 		/*if (controlTiempo % 500 == 0) {
