@@ -221,7 +221,10 @@ function gestionPowerups() {
         gameContext.drawImage(powerup[p].sprite, powerup[p].posX, powerup[p].posY)
         //console.log("tiempo efecto: " + tiempoefecto);
     }
-    if (activo == 1) { tiempoefecto++; }
+    if (activo == 1) {
+        tiempoefecto++;
+        drawPowerUpActive();
+    }
     if (tiempoefecto >= 250) {
         console.log("desactivamos el powerup " + efecto);
         desactivarPowerup(efecto);
@@ -286,4 +289,10 @@ function desactivarPowerup(efecto) {
 //Funcion con la que borraremos los sonidos 
 function borraSonidos() {
     $("#contieneAudio").html("");
-} 
+}
+
+function drawPowerUpActive() {
+    gameContext.strokeStyle = "#FF0000";
+    gameContext.lineWidth = 15;
+    gameContext.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+}
