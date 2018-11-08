@@ -137,10 +137,13 @@ function toque(posx, posy) {
     }
     for (b in arrButterfly) {
         if (posx > arrButterfly[b].posX && posx < arrButterfly[b].posX + arrButterfly[b].anchura && posy > arrButterfly[b].posY && posy < arrButterfly[b].posY + arrButterfly[b].altura) {
-            console.log("le has dado a una mariposa");
-            insectoGolpeado(arrButterfly[b].posX, arrButterfly[b].posY);
-            cuentaMariposas++;
-            arrButterfly.splice(b, 1);
+            if (shieldup == 1) { shieldused = 1; }
+            else {
+                console.log("le has dado a una mariposa");
+                insectoGolpeado(arrButterfly[b].posX, arrButterfly[b].posY);
+                cuentaMariposas++;
+                arrButterfly.splice(b, 1);
+            }
         }
     }
     for (w in arrWasp) {
@@ -200,13 +203,15 @@ function spawnPowerup() {
     //Solo 1 powerup en pantalla a la vez
     if (nPowerups == 0) {
         var image = new Image();
-        var rnd = randomRangeNumber(0, 2);
+        var rnd = randomRangeNumber(0, 3);
         switch (rnd) {
             case 0: image = golpeimg; efecto = 1;
                 break;
             case 1: image = velbichoimg; efecto = 2;
                 break;
             case 2: image = doblesimg; efecto = 3;
+                break;
+            case 3: image = shieldimg; efecto = 4;
                 break;
         }
         nPowerups = 1;
@@ -221,15 +226,19 @@ function gestionPowerups() {
         gameContext.drawImage(powerup[p].sprite, powerup[p].posX, powerup[p].posY)
         //console.log("tiempo efecto: " + tiempoefecto);
     }
-    if (activo == 1) {
+    if ((activo == 1) && ((efecto == 1) || (efecto == 2) || (efecto == 3))) {
         tiempoefecto++;
         drawPowerUpActive();
     }
-    if (tiempoefecto >= 250) {
+    else if ((activo == 1) && (efecto == 4)) {
+        drawPowerUpActive();
+    }
+    if ((tiempoefecto >= 250) || (shieldused == 1)) {
         console.log("desactivamos el powerup " + efecto);
         desactivarPowerup(efecto);
         nPowerups = 0;
         tiempoefecto = 0;
+        shieldused = 0;
     }
 }
 
@@ -257,6 +266,9 @@ function activarPowerup(efecto) {
         case 3:
             bonus = 2;
             break;
+        case 4:
+            shieldup = 1;
+            break;
     }
 }
 
@@ -282,6 +294,9 @@ function desactivarPowerup(efecto) {
             break;
         case 3:
             bonus = 1;
+            break;
+        case 4:
+            shieldup = 0;
             break;
     }
 }
