@@ -4,7 +4,7 @@
   }
 body,html{margin:0px;padding:0px;overflow:hidden;font-family: 'SpicyRice'}
 #backgroundMainMenu{
-	background-image: url("../img/background.png");
+	background-image: url("../img/background_olga.png");
 	background-size:cover;
 }
 
@@ -94,7 +94,7 @@ h1{
 
 
 #backgroundCanvas{
-	background-image: url("../img/background.png");
+	background-image: url("../img/background_olga.png");
 	background-size:cover;
 }
 
