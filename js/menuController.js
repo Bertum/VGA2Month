@@ -34,18 +34,16 @@ function openCredits() {
 function openScoreList() {
     $("#buttonsContainer").hide();
     $("#scoresContainer").show();
-    /*
-    var database = openDatabase('puntuaciones', '1.0','Puntuacion del juego', 2* 1024 * 1024);
+    $("#scoresList").html("");
+    var database = openDatabase('scores', '1.0','Puntuacion del juego', 2* 1024 * 1024);
 		database.transaction(function (tx) { 
-		tx.executeSql('SELECT * FROM puntuaciones ORDER BY puntos ASC LIMIT 5', [], function (tx, results) { 
+		tx.executeSql('SELECT * FROM scores ORDER BY puntos ASC LIMIT 5', [], function (tx, results) { 
 		  var len = results.rows.length, i; 
-		  for (i = 0; i < len; i++) { 
-			 $("#scoresPanel").append(i+".- "results.rows.item(i).puntos+"</br>"); 
+		  for (i = 0; i < len; i++) {            
+			 $("#scoresList").append("<li class='creditList'>"+i+".- "+results.rows.item(i).puntos+"</li>"); 
 		  } 
-
-		}, null); 
+		}, null);
 		});
-    */
 }
 
 /**

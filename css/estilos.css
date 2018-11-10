@@ -86,10 +86,12 @@ h1{
 	margin-top: 5px;
 }
 
-#programmers{
+#programmers,#scores{
 	padding-top: 10px;
 	padding-left: 10px;
 }
+
+
 
 #backgroundCanvas{
 	background-image: url("../img/background.png");
