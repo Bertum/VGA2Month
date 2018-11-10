@@ -215,7 +215,11 @@ function spawnPowerup() {
                 break;
         }
         nPowerups = 1;
-        powerup.push(new Powerup(image, Math.random() * widthVentana - 200, Math.random() * heightVentana - 200, efecto));
+        var height = Math.random() * heightVentana - 200
+        if (height < 50) {
+            height = 50;
+        }
+        powerup.push(new Powerup(image, Math.random() * widthVentana - 200, height, efecto));
         console.log("Ha aparecido el powerup " + efecto);
     }
 }
