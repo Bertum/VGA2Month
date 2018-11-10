@@ -14,7 +14,8 @@
 				<div id="mainMenuButtons">
 					<button id="tutorial" onclick="launchLevel(1)">Arcade</button>
 					<button id="level2" onclick="launchLevel(2)">Contrarreloj</button>
-					<button id="level2" onclick="openCredits()">Creditos</button>
+					<button id="credits" onclick="openCredits()">Creditos</button>
+					<button id="scores" onclick="openScoreList()">Puntuaciones</button>
 				</div>
 			</div>
 			<div id="creditsContainer">
@@ -31,8 +32,13 @@
 					</ul>
 				</div>
 				<div>
-					<button onclick="backToMain()">Volver al menú</button>
+					<button onclick="backToMainCredits()">Volver al menú</button>
 				</div>
+			</div>
+			<div id="scoresContainer">
+				<div id="scoresPanel">
+				</div>
+				<button onclick="backToMainScores()">Volver al menú</button>
 			</div>
 		</div>
 		<audio id="musica" src="audio/one.mp3" autoplay></audio>

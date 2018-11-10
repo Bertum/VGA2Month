@@ -42,7 +42,7 @@ h1{
     margin: 0 auto;
 }
 
-#creditsPanel{
+#creditsPanel,#scoresPanel{
 	font-family: 'SpicyRice';
 	background: url("../img/button_bg.png");
 	background-size: cover;
@@ -73,7 +73,7 @@ h1{
 	margin-top: 5%;
 }
 
-#creditsContainer{
+#creditsContainer,#scoresContainer{
 	width: 50%;
     margin: 0 auto;
 }

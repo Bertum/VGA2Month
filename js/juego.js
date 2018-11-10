@@ -69,6 +69,16 @@ function bucle() {
 
 function finDelJuego() {
 	if (cuentaMariposas >= limiteMariposas || (tiempoContrareloj - controlTiempo <= 0 && level == 2)) {
+		/*
+		gamePaused = true;
+		var database = openDatabase('puntuaciones', '1.0','Puntuacion del juego', 2* 1024 * 1024);
+		
+		database.transaction(function(tx) {
+			tx.executeSql('CREATE TABLE IF NOT EXISTS puntuaciones (id unique, puntos, vidas, level)');
+			tx.executeSql('INSERT INTO puntuaciones (puntos, vidas) VALUES ("'+puntuacion+'", "'+cuentaMariposas+'", "'+level+'")'); 
+		});
+		
+		*/
 		localStorage.setItem("puntuacion", puntuacion);
 		window.location.href = "gameOver.html";
 	}
