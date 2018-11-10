@@ -26,7 +26,7 @@ function gestionPuntuacion() {
 function gestionPuntuacionMariposas() {
     $("#mariposas").html("");
     for (var i = 0; i < cuentaMariposas; i++) {
-        $("#mariposas").append('<img src="img/butterfly.png" />');
+        $("#mariposas").append('<img style="    height: 50px;width: 50px;" src="img/butterfly.png" />');
     }
 }
 
