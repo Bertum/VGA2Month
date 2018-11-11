@@ -3,7 +3,7 @@ $("#creditsContainer").hide();
 //Ocultamos el contenedor de puntuaciones
 $("#scoresContainer").hide();
 //Agregamos la puntuacion a la pantalla de Game Over
-$("#puntuacionGameOver").html("Tu puntuacion esta vez ha sido de "+localStorage.getItem("puntuacion")+" puntos, Enhorabuena!");
+$("#puntuacionGameOver").html("Tu puntuacion esta vez ha sido de " + localStorage.getItem("puntuacion") + " puntos, Enhorabuena!");
 //Gestionamos el tamaño de la pantalla
 var widthVentana = window.innerWidth;
 var heightVentana = window.innerHeight;
@@ -35,15 +35,15 @@ function openScoreList() {
     $("#buttonsContainer").hide();
     $("#scoresContainer").show();
     $("#scoresList").html("");
-    var database = openDatabase('scores', '1.0','Puntuacion del juego', 2* 1024 * 1024);
-		database.transaction(function (tx) { 
-		tx.executeSql('SELECT * FROM scores ORDER BY puntos ASC LIMIT 5', [], function (tx, results) { 
-		  var len = results.rows.length, i; 
-		  for (i = 0; i < len; i++) {            
-			 $("#scoresList").append("<li class='creditList'>"+i+".- "+results.rows.item(i).puntos+"</li>"); 
-		  } 
-		}, null);
-		});
+    var database = openDatabase('scores', '1.0', 'Puntuacion del juego', 2 * 1024 * 1024);
+    database.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM scores ORDER BY puntos DESC LIMIT 5', [], function (tx, results) {
+            var len = results.rows.length, i;
+            for (i = 0; i < len; i++) {
+                $("#scoresList").append("<li class='creditList'>" + i + ".- " + results.rows.item(i).puntos + "</li>");
+            }
+        }, null);
+    });
 }
 
 /**
@@ -72,6 +72,6 @@ function resetGame() {
 /**
  * Repite el juego
  */
-function retry (){
+function retry() {
     window.location.href = "mainGame.html"
 }
