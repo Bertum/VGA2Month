@@ -39,8 +39,13 @@ function openScoreList() {
     database.transaction(function (tx) {
         tx.executeSql('SELECT * FROM scores ORDER BY puntos DESC LIMIT 5', [], function (tx, results) {
             var len = results.rows.length, i;
+            var scores = new Array();
             for (i = 0; i < len; i++) {
-                $("#scoresList").append("<li class='creditList'>" + i + ".- " + results.rows.item(i).puntos + "</li>");
+                scores[i]= results.rows.item(i).puntos;
+            }
+            scores.sort(function(a, b){return b - a});
+            for (n in scores) {
+                $("#scoresList").append("<li class='creditList'>" + n + ".- " + scores[n] + "</li>");
             }
         }, null);
     });
