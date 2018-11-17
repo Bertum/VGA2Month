@@ -35,7 +35,7 @@ butterflyImg.src = "img/butterfly.png";
 //Imagen avispa
 var waspImg = new Image();
 waspImg.addEventListener('load', function () { }, { once: true });
-waspImg.src = "img/wasp.png";
+waspImg.src = "img/wasp_olga.png";
 //Imagen megaMosca
 var megaFlyImg = new Image();
 megaFlyImg.addEventListener('load', function () { }, { once: true });
