@@ -75,9 +75,9 @@ var doblesimg = new Image();
 var shieldimg = new Image();
 
 
-golpeimg.src = "img/punch_powerup.png";
-velbichoimg.src = "img/slow_powerup.png";
+golpeimg.src = "img/punch_olga.png";
+velbichoimg.src = "img/sand_clock_olga.png";
 doblesimg.src = "img/double_powerup.png";
-shieldimg.src = "img/shield_powerup.png";
+shieldimg.src = "img/shield_olga.png";
 
 var punchSound = new Audio("audio/punch.ogg");
